@@ -1,0 +1,30 @@
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='robots' content='noindex, nofollow'>
+
+  <title>Cypress onChange event bug</title>
+</head>
+
+
+<label>Choose an ice cream flavor:
+  <select class='ice-cream' name='ice-cream'>
+    <option value=''>Select One …</option>
+    <option value='chocolate'>Chocolate</option>
+    <option value='sardine'>Sardine</option>
+    <option value='vanilla'>Vanilla</option>
+  </select>
+</label>
+
+<div class='result'></div>
+
+
+<script>
+  const selectElement = document.querySelector('.ice-cream');
+  let numOfTimesOnChangeFired = 0;
+  selectElement.addEventListener('change', (event) => {
+    const result = document.querySelector('.result');
+    result.textContent = `Number of times onChange event fired: ${++numOfTimesOnChangeFired}`;
+  });
+
+</script>
